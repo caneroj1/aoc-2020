@@ -5,3 +5,4 @@ target/
 project/.bloop
 project/project
 *.csv
+metals.sbt
