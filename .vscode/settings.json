@@ -1,0 +1,30 @@
+{
+    "files.watcherExclude": {
+        "**/target": true
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/.metals": true,
+        "**/.bloop": true,
+        "project/target/**": true,
+        "project/project/**": true,
+        "**/.bsp": true,
+        "target/**": true,
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/.metals": true,
+        "**/.bloop": true,
+        "project/project/**": true,
+        "target/**": true,
+        "**/.bsp": true
+    },
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2
+}

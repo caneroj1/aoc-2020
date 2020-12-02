@@ -1,0 +1,7 @@
+target/
+.bloop/*
+.bsp
+.metals
+project/.bloop
+project/project
+*.csv
