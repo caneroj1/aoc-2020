@@ -1,6 +1,7 @@
 package jcanero.day3
 
 import jcanero.utils._
+import scala.annotation.tailrec
 
 object DayThreeHelpers {
   sealed trait Tile
@@ -75,6 +76,21 @@ object DayThreePartTwo {
     }
   }
 
+  @tailrec def traverseMap(
+      map: Vector[Vector[Tile]],
+      slopes: Array[Slope]
+  ): Array[Slope] = {
+    slopes.partition(_.canAdvance()) match {
+      case (Array(), doneSlopes) => doneSlopes
+      case (unfinishedSlopes, doneSlopes) => {
+        traverseMap(
+          map,
+          unfinishedSlopes.map(advanceSlope(map)).concat(doneSlopes)
+        )
+      }
+    }
+  }
+
   def main(args: Array[String]) = {
     val map = getMap(args)
     var slopes = Array(
@@ -85,17 +101,9 @@ object DayThreePartTwo {
       Slope(Some(Position(0, 0)), Position(2, 1), 0)
     )
 
-    var stillSlopes = true
-    while (stillSlopes) {
-      slopes.partition(_.canAdvance()) match {
-        case (Array(), _) => stillSlopes = false
-        case (validSlopes, invalidSlopes) => {
-          slopes = validSlopes.map(advanceSlope(map)).concat(invalidSlopes)
-        }
-      }
-    }
+    val finishedSlopes = traverseMap(map, slopes)
 
-    val treeCounts = slopes.map(_.treeCount.longValue())
+    val treeCounts = finishedSlopes.map(_.treeCount.longValue())
     treeCounts.foreach(println)
 
     val product = treeCounts.product
