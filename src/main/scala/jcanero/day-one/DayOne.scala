@@ -9,7 +9,7 @@ object DayOnePartOne {
   def main(args: Array[String]) {
     val b = HashSet.newBuilder[Int]
     InputReader
-      .getPuzzleInput(1, 1)
+      .getPuzzleInput(1, args)
       .foreach(b += _.toInt)
     val s = b.result()
 
@@ -31,7 +31,7 @@ object DayOnePartTwo {
     val b1 = HashSet.newBuilder[Int]
     val b2 = HashMap.newBuilder[Int, Int]
     InputReader
-      .getPuzzleInput(1, 1)
+      .getPuzzleInput(1, args)
       .foreach(is => {
         val i = is.toInt
         b1 += i

@@ -36,7 +36,7 @@ object DayTwoPartOne {
 
   def main(args: Array[String]) {
     val numberValid = InputReader
-      .getPuzzleInput(2, 1)
+      .getPuzzleInput(2, args)
       .count(isPasswordValid _)
     println(numberValid)
   }
@@ -55,7 +55,7 @@ object DayTwoPartTwo {
 
   def main(args: Array[String]) {
     val numberValid = InputReader
-      .getPuzzleInput(2, 1)
+      .getPuzzleInput(2, args)
       .count(isPasswordValid _)
     println(numberValid)
   }
